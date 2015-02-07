@@ -7,6 +7,10 @@ import com.rmr.beans.FOSDetailsBean;
 
 public class Director implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String directorUsername;
 	private String directorPwd;
 	private List<FOSDetailsBean> fosList;
