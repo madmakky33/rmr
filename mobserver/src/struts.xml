@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.action.excludePattern" value="/rest/.*" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<package name="default" extends="struts-default">
+
+		<action name="login" class="com.rmr.action.LoginAction">
+			<result name="success" type="chain">home</result>
+			<result name="input">/login.jsp</result>
+		</action>
+
+		<action name="signup" class="com.rmr.action.LoginAction"
+			method="signUp">
+			<result name="success">/sign_up.jsp</result>
+			<result name="error">/failur.jsp</result>
+		</action>
+
+		<action name="home">
+			<result name="success">/home.jsp</result>
+		</action>
+
+		<action name="add" class="com.rmr.action.FOSAction" method="add">
+			<result name="success" type="chain">index</result>
+			<result name="input" type="chain">index</result>
+		</action>
+
+		<action name="delete" class="com.rmr.action.FOSAction" method="delete">
+			<result name="success" type="chain">index</result>
+		</action>
+
+		<action name="index" class="com.rmr.action.FOSAction">
+			<result name="success">index.jsp</result>
+		</action>
+
+		<action name="add_task" class="com.rmr.action.TaskAction"
+			method="add">
+			<result name="success" type="chain">task_list</result>
+			<result name="input" type="chain">task_list</result>
+		</action>
+
+		<action name="delete_task" class="com.rmr.action.TaskAction"
+			method="delete">
+			<result name="success" type="chain">task_list</result>
+		</action>
+
+		<action name="task_list" class="com.rmr.action.TaskAction">
+			<result name="success">task_list.jsp</result>
+		</action>
+
+		<action name="send_gcm_message_page" class="com.rmr.action.GCMAction">
+			<result name="success">gcm_server_panel.jsp</result>
+		</action>
+
+		<action name="send_gcm_message" class="com.rmr.action.GCMAction"
+			method="sendMessage">
+			<result name="success">gcm_server_panel.jsp</result>
+		</action>
+	</package>
+</struts>
