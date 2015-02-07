@@ -6,6 +6,8 @@ import java.util.List;
 import com.rmr.beans.FOSDetailsBean;
 
 public class Director implements Serializable {
+	
+	//Director file
 
 	private String directorUsername;
 	private String directorPwd;
